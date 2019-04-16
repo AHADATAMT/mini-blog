@@ -19,7 +19,6 @@ class Post(db.Model):
 
 db.create_all()
 
-
 @app.route("/")
 def index():
     return redirect(url_for('posts'))
@@ -33,6 +32,7 @@ def posts():
 
 @app.route('/create', methods=['POST', 'GET'])
 def create():
+    error = None
     if request.method == 'POST':
         isError = validate_create_form(request.form)
         if not isError["error"]:
@@ -47,9 +47,9 @@ def create():
         else:
             flash(isError["msg"], isError["category"])
 
-    return render_template('create_form.html', last=request.form)
+    return render_template('create_form.html', error=error)
 
-
+## verify input fields 
 def validate_create_form(form):
     if len(form['title']) == 0:
         return {"error": True, "msg": "title cannot be blank", "category": "error-title"}
