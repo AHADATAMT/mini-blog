@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}POST{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            {% for post in posts %}
+            <div>
+                <h3>{{post.title}}</h3>
+                <p>{{post.body}} - {{post.author_name}}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
