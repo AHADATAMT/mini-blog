@@ -123,11 +123,11 @@ def logout():
 def user_post(username):
     user = User.query.filter_by(username=username).first()
     if user is None:
-        return "This username isn't available"
+        return json.dumps({"msg" : "This username isn't available"})
     posts = Post.query.filter_by(user_id=user.id).first()
     print(posts)
     if posts is None:
-        return "This username doesn't have any post"
+        return json.dumps({"msg" : "This username doesn't have any post"})
 
     userposts = []
     for post in user.posts:
