@@ -31,9 +31,10 @@
             </div>
             <div class="form-check">
                 <select name="author" id="author">
-                    <option value="">Select author</option>
-                    <option value="Tom">Tom</option>
-                    <option value="Jerry">Jerry</option>
+                    <option value="" hidden>Select author</option>
+                    {% for author in authors %}
+                    <option value="{{author.id}}">{{author.username}}</option>
+                    {% endfor %}
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>

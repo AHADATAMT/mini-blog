@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}
+Profile
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="p-5">
+            <h2>Hi! {{user}}</h2>
+            <a href="/logout">Logout here!</a>
+        </div>
+    </div>
+</div>  
+{% endblock %}

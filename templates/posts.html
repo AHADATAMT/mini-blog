@@ -7,7 +7,7 @@
             {% for post in posts %}
             <div>
                 <h3>{{post.title}}</h3>
-                <p>{{post.body}} - {{post.author_name}}</p>
+                <p>{{post.body}} - {{post.author.username}}</p>
             </div>
             {% endfor %}
         </div>
